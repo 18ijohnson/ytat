@@ -18,31 +18,43 @@ struct ContentView: View {
     var body: some View {
         NavigationView() {
             TabView(selection: $selection) {
+                SearchView()
+                    .tabItem{
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                            //if selection != -1 { Text("Search") }
+                        }
+                    }
+                    .tag(-1)
                 VideoGridView(topic: "default")
                     .tabItem {
                         HStack {
-                            Text("Home")
+                            Image(systemName: "house.fill")
+                            //Text("Home")
                         }
                     }
                     .tag(0)
                 VideoGridView(topic: "FEtopics_news")
                     .tabItem {
                         HStack {
-                            Text("News")
+                            Image(systemName: "newspaper.fill")
+                            //Text("News")
                         }
                     }
                     .tag(1)
                 VideoGridView(topic: "FEtopics_gaming")
                     .tabItem {
                         HStack {
-                            Text("Gaming")
+                            Image(systemName: "gamecontroller.fill")
+                            //Text("Gaming")
                         }
                     }
                     .tag(2)
                 VideoGridView(topic: "FEtopics_sports")
                     .tabItem {
                         HStack {
-                            Text("Sports")
+                            Image(systemName: "sportscourt")
+                            //Text("Sports")
                         }
                     }
                     .tag(3)
@@ -53,6 +65,21 @@ struct ContentView: View {
 //                        }
 //                    }
 //                    .tag(4)
+                SubscriptionsView()
+                    .tabItem {
+                        HStack {
+                            Image(systemName: "play.rectangle.on.rectangle.fill")
+                            //Text("Subscriptions")
+                        }
+                    }
+                    .tag(5)
+                LibraryView()
+                    .tabItem {
+                        HStack {
+                            Image(systemName: "books.vertical.fill")
+                            //Text("Library")
+                        }
+                    }
             }
             .background { HeaderView() }
         }

@@ -11,7 +11,7 @@ import Foundation
 class VideoCard: Hashable, Equatable {
     let uuid = UUID()
     let videoThumbnail: URL
-    let videoFocusThumbnail: URL
+    let videoFocusThumbnail: URL?
     let videoThumbnailOverlayTimeStatus: String
     let videoTitle: String
     let videoLine1: String
@@ -21,7 +21,7 @@ class VideoCard: Hashable, Equatable {
 
     static let example = VideoCard(videoThumbnail: URL(string: "https://via.placeholder.com/444x250")!, videoFocusThumbnail: URL(string: "https://via.placeholder.com/444x250")!, videoThumbnailOverlayTimeStatus: "\(Int.random(in: 1..<60)):\(Int.random(in: 1..<60))", videoTitle: randomString(length: 30), videoLine1: randomString(length: 15), videoLine2: "\(Int.random(in: 1..<1000))K Views • \(Int.random(in: 1..<30)) Days Ago", videoID: "")
     
-    init(videoThumbnail: URL, videoFocusThumbnail: URL, videoThumbnailOverlayTimeStatus: String, videoTitle: String, videoLine1: String, videoLine2: String, videoLine3: String = "", videoID: String) {
+    init(videoThumbnail: URL, videoFocusThumbnail: URL? = nil, videoThumbnailOverlayTimeStatus: String, videoTitle: String, videoLine1: String, videoLine2: String, videoLine3: String = "", videoID: String) {
         self.videoThumbnail = videoThumbnail
         self.videoFocusThumbnail = videoFocusThumbnail
         self.videoThumbnailOverlayTimeStatus = videoThumbnailOverlayTimeStatus

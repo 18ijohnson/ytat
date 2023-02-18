@@ -16,10 +16,12 @@ func sendRequest(APIRequest: APIRequest) -> Data? {
     request.httpMethod = APIRequest.method
     request.allHTTPHeaderFields = APIRequest.headers
     
-    do {
-        request.httpBody = try JSONEncoder().encode(APIRequest.body)
-    } catch {
-        return nil
+    if APIRequest.body != nil {
+        do {
+            request.httpBody = try JSONEncoder().encode(APIRequest.body)
+        } catch {
+            return nil
+        }
     }
     
     let semaphore = DispatchSemaphore(value: 0)
@@ -51,13 +53,13 @@ class APIRequest {
     let url: URL
     let method: String
     let headers: [String: String]
-    let body: RequestBody
+    let body: RequestBody?
     
-    init(url: String, method: String, headers: [String: String], body: RequestBody) {
+    init(url: String, method: String, headers: [String: String], body: RequestBody? = nil) {
         self.url = URL(string: url)!
         self.method = method
         self.headers = headers
-        self.body = body
+        if body != nil { self.body = body } else { self.body = nil} //todo: replace with ternary
     }
 }
 
