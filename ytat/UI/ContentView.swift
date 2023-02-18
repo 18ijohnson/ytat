@@ -30,7 +30,7 @@ struct ContentView: View {
                     .tabItem {
                         HStack {
                             Image(systemName: "house.fill")
-                            Text("Home")
+                            //Text("Home")
                         }
                     }
                     .tag(0)
@@ -38,23 +38,23 @@ struct ContentView: View {
                     .tabItem {
                         HStack {
                             Image(systemName: "newspaper.fill")
-                            Text("News")
+                            //Text("News")
                         }
                     }
                     .tag(1)
-//                VideoGridView(topic: "FEtopics_gaming")
-//                    .tabItem {
-//                        HStack {
-//                            Image(systemName: "gamecontroller.fill")
-//                            Text("Gaming")
-//                        }
-//                    }
-//                    .tag(2)
+                VideoGridView(topic: "FEtopics_gaming")
+                    .tabItem {
+                        HStack {
+                            Image(systemName: "gamecontroller.fill")
+                            //Text("Gaming")
+                        }
+                    }
+                    .tag(2)
                 VideoGridView(topic: "FEtopics_sports")
                     .tabItem {
                         HStack {
                             Image(systemName: "sportscourt")
-                            Text("Sports")
+                            //Text("Sports")
                         }
                     }
                     .tag(3)
@@ -69,7 +69,7 @@ struct ContentView: View {
                     .tabItem {
                         HStack {
                             Image(systemName: "play.rectangle.on.rectangle.fill")
-                            Text("Subscriptions")
+                            //Text("Subscriptions")
                         }
                     }
                     .tag(5)
@@ -77,7 +77,7 @@ struct ContentView: View {
                     .tabItem {
                         HStack {
                             Image(systemName: "books.vertical.fill")
-                            Text("Library")
+                            //Text("Library")
                         }
                     }
             }
