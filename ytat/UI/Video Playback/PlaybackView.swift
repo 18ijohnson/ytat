@@ -8,6 +8,8 @@
 import SwiftUI
 import AVKit
 
+
+//todo: fix playback for non-standard videos (ie movies)
 struct PlaybackView: View {
     
     @State var playerViewController = AVPlayerViewController()

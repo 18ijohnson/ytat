@@ -26,7 +26,7 @@ struct ContentView: View {
                         }
                     }
                     .tag(-1)
-                VideoGridView(topic: "default")
+                BrowseView(topic: "default")
                     .tabItem {
                         HStack {
                             Image(systemName: "house.fill")
@@ -34,7 +34,7 @@ struct ContentView: View {
                         }
                     }
                     .tag(0)
-                VideoGridView(topic: "FEtopics_news")
+                BrowseView(topic: "FEtopics_news")
                     .tabItem {
                         HStack {
                             Image(systemName: "newspaper.fill")
@@ -42,15 +42,15 @@ struct ContentView: View {
                         }
                     }
                     .tag(1)
-                VideoGridView(topic: "FEtopics_gaming")
-                    .tabItem {
-                        HStack {
-                            Image(systemName: "gamecontroller.fill")
-                            //Text("Gaming")
-                        }
-                    }
-                    .tag(2)
-                VideoGridView(topic: "FEtopics_sports")
+//                BrowseView(topic: "FEtopics_gaming")
+//                    .tabItem {
+//                        HStack {
+//                            Image(systemName: "gamecontroller.fill")
+//                            //Text("Gaming")
+//                        }
+//                    }
+//                    .tag(2)
+                BrowseView(topic: "FEtopics_sports")
                     .tabItem {
                         HStack {
                             Image(systemName: "sportscourt")
@@ -58,7 +58,7 @@ struct ContentView: View {
                         }
                     }
                     .tag(3)
-//                VideoGridView(topic: "FEtopics_music")
+//                BrowseView(topic: "FEtopics_music")
 //                    .tabItem {
 //                        HStack {
 //                            Text("Music")
