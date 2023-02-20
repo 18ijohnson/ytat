@@ -17,7 +17,7 @@ struct DefaultTileView: View {
                 //todo: fix navigation for non video items
                 //todo: figure out time overlay
                 AsyncImage(
-                    url: URLFormatter(urlString: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnail.thumbnails[1].url)!), //todo: better selection of thumbnail resolution
+                    url: URLFormatter(urlString: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnail.thumbnails[2].url)!), //todo: better selection of thumbnail resolution
                     content: { image in
                     image.resizable()
                         .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)

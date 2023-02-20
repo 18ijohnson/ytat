@@ -53,7 +53,7 @@ func generateTileLineText(item: TileLineItem) -> AnyView {
                 .cornerRadius(5)
             )
         } else {
-            print("!!!Unrecognized Badge Style: \(item.lineItemRenderer.badge?.metadataBadgeRenderer.style)")
+            print("!!!Unrecognized Badge Style: \(String(describing: item.lineItemRenderer.badge?.metadataBadgeRenderer.style))")
             return AnyView(Text(label)
                 .lineLimit(1)
                 .font(.system(size: 24, weight: .semibold))

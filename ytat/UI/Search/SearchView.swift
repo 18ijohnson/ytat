@@ -10,25 +10,15 @@ import SwiftUI
 
 struct SearchView: View {
     @State var searchResults: SearchResponse?
+    @State var searchText: String = ""
     
     var body: some View {
-        VStack(spacing: 0) {
-            SearchBar(searchResults: $searchResults)
-                .border(.blue)
-                .padding(0)
-//            ScrollView(.horizontal){
-//                HStack(spacing: 20){
-//                    if searchResults != nil {
-//                        ForEach((searchResults?.contents?.sectionListRenderer?.contents)!) { shelf in
-//                            VideoCardRowView(videoCardRow: VideoCardRow(
-//                                title: (shelf.shelfRenderer?.headerRenderer?.shelfHeaderRenderer?.title?.simpleText)!,
-//                                videoCards: getVideoCards(shelf: shelf)
-//                            ))
-//                        }
-//                    }
-//                }
-//            }
-            Spacer()
+        NavigationView {
+            SearchBar(text: $searchText, results: $searchResults) {
+                if searchResults != nil {
+                    DefaultSectionView(section: searchResults!.contents)
+                }
+            }
         }
     }
 }
