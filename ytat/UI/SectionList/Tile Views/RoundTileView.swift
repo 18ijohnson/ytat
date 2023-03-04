@@ -27,7 +27,7 @@ struct RoundTileView: View {
                     ProgressView()
                 })
             })
-            .buttonStyle(PlainNavigationLinkButtonStyle())
+            .buttonStyle(RoundNavigationLinkButtonStyle())
             // Title
             Text((tile.tileRenderer?.metadata.tileMetadataRenderer.title.simpleText!)!)
                 .lineLimit(2)
