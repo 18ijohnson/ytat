@@ -20,7 +20,8 @@ struct DefaultTileView: View {
                     url: getThumbnailURL(thumbnails: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnail.thumbnails)!),
                     content: { image in
                     image.resizable()
-                        .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)
+                            .frame(width: 444)
+                            .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)
                             .cornerRadius(10)
                 },
                 placeholder: {
