@@ -12,8 +12,13 @@ struct DefaultShelfView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.simpleText ?? "")
-                .frame(maxWidth: .infinity, alignment: .leading)
+            if shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.simpleText != nil {
+                Text(shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.simpleText ?? "")
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            } else if shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.runs != nil {
+                Text(handleRuns(runs: (shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.runs)!))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
             ScrollView(.horizontal) {
                 HStack(spacing: 10){
                     ForEach((shelf.shelfRenderer?.content.horizontalListRenderer.items)!) {item in
@@ -40,4 +45,12 @@ struct DefaultShelfView_Previews: PreviewProvider {
     static var previews: some View {
         DefaultShelfView(shelf: Examples.searchShelf)
     }
+}
+
+func handleRuns(runs: [CTextRun]) -> String {
+    var text = ""
+    for run in runs {
+        text += run.text ?? ""
+    }
+    return text
 }

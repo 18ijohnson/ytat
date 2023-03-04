@@ -13,8 +13,10 @@ func callBrowseAPI(topic: String) -> BrowseResponse {
     let requestBody = RequestBody(context: RequestContext(client: RequestClient(tvAppInfo: TvAppInfo(zylonLeftNav: true), clientName: "TVHTML5", clientVersion: "7.20220118.09.00", clientScreen: "WATCH", webpSupport: false, animatedWebpSupport: false, acceptLanguage: "en-US", acceptRegion: "US", utcOffsetMinutes: "-480", visitorData: "CgtXSE5yT3JKdTBfOCi-4seeBg%3D%3D"), user: RequestUser(enableSafetyMode: false, lockedSafetyMode: false)), racyCheckOk: true, contentCheckOk: true, browseID: "default")
     
     let response = sendRequest(APIRequest: APIRequest(url: url, method: "POST", headers: headers, body: requestBody))
-//    let responseString = String(data: response!, encoding: .utf8)
+    
+//    var responseString = String(data: response!, encoding: .utf8)
 //    print("!!!Response: \(responseString)")
+    
     let browseResponse = try! JSONDecoder().decode(BrowseResponse.self, from: response!)
 
     return browseResponse
