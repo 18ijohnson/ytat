@@ -17,7 +17,7 @@ struct DefaultTileView: View {
                 //todo: fix navigation for non video items
                 //todo: figure out time overlay
                 AsyncImage(
-                    url: URLFormatter(urlString: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnail.thumbnails[0].url)!), //todo: better selection of thumbnail resolution
+                    url: getThumbnailURL(thumbnails: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnail.thumbnails)!),
                     content: { image in
                     image.resizable()
                         .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)
@@ -51,6 +51,13 @@ struct DefaultTileView: View {
         .frame(width: 444, height: 400)
         //.border(.red)
     }
+}
+
+func getThumbnailURL(thumbnails: [TileThumbnailItem]) -> URL {
+    for thumbnail in thumbnails { //todo make this better
+        if thumbnail.width == 444 { return URLFormatter(urlString: thumbnail.url) }
+    }
+    return URLFormatter(urlString: thumbnails[0].url)
 }
 
 struct TileView_Previews: PreviewProvider {
