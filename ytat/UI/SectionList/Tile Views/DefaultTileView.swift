@@ -13,11 +13,11 @@ struct DefaultTileView: View {
     var body: some View {
         VStack{
             // Thumbnail
-            NavigationLink(destination: NavigationLazyView(PlaybackView(videoID: tile.tileRenderer!.contentId)), label: {
+            NavigationLink(destination: NavigationLazyView(PlaybackView(videoID: tile.tileRenderer!.contentId ?? "")), label: {
                 //todo: fix navigation for non video items
                 //todo: figure out time overlay
                 AsyncImage(
-                    url: URLFormatter(urlString: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnail.thumbnails[2].url)!), //todo: better selection of thumbnail resolution
+                    url: URLFormatter(urlString: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnail.thumbnails[0].url)!), //todo: better selection of thumbnail resolution
                     content: { image in
                     image.resizable()
                         .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)

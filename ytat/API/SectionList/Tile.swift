@@ -18,9 +18,9 @@ struct Tile: Decodable, Identifiable {
 }
 
 struct TileRenderer: Decodable {
-    var style: String = ""
-    var contentType: String = ""
-    var contentId: String = ""
+    var style: String? = ""
+    var contentType: String? = ""
+    var contentId: String? = ""
 
     var header: TileHeader
     var metadata: TileMetadata
@@ -48,7 +48,7 @@ struct TileThumbnailItem: Decodable {
 
 struct TileThumbnailOverlay: Decodable {
     var text: CText
-    var style: String
+    var style: String?
 }
 
 //MARK: - Metadata

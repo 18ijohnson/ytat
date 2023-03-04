@@ -12,11 +12,11 @@ struct DefaultShelfView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Text(shelf.shelfRenderer.headerRenderer.shelfHeaderRenderer.title?.simpleText ?? "")
+            Text(shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.simpleText ?? "")
                 .frame(maxWidth: .infinity, alignment: .leading)
             ScrollView(.horizontal) {
                 HStack(spacing: 10){
-                    ForEach(shelf.shelfRenderer.content.horizontalListRenderer.items) {item in
+                    ForEach((shelf.shelfRenderer?.content.horizontalListRenderer.items)!) {item in
                         getTileView(tile: item)
                     }
                 }

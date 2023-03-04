@@ -10,7 +10,7 @@ import Foundation
 //MARK: - Shelf
 struct Shelf: Decodable, Identifiable {
     var id: UUID = UUID()
-    var shelfRenderer: ShelfRenderer
+    var shelfRenderer: ShelfRenderer?
     
     private enum CodingKeys: String, CodingKey {
         case shelfRenderer

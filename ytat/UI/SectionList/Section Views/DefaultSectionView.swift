@@ -18,7 +18,7 @@ struct DefaultSectionView: View {
                 .frame(alignment: .topLeading)
             }
         }
-        .border(.blue)
+        //.border(.blue)
     }
 }
 

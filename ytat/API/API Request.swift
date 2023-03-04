@@ -65,7 +65,7 @@ class APIRequest {
 
 // MARK: - struct RequestBody
 struct RequestBody: Codable {
-    var context: Context
+    var context: RequestContext
     var racyCheckOk, contentCheckOk: Bool
     var browseID: String
 
@@ -75,12 +75,12 @@ struct RequestBody: Codable {
     }
 }
 
-struct Context: Codable {
-    var client: Client
-    var user: User
+struct RequestContext: Codable {
+    var client: RequestClient
+    var user: RequestUser
 }
 
-struct Client: Codable {
+struct RequestClient: Codable {
     var tvAppInfo: TvAppInfo
     var clientName, clientVersion, clientScreen: String
     var deviceModel: String?
@@ -92,6 +92,6 @@ struct TvAppInfo: Codable {
     var zylonLeftNav: Bool
 }
 
-struct User: Codable {
+struct RequestUser: Codable {
     var enableSafetyMode, lockedSafetyMode: Bool
 }
