@@ -19,14 +19,21 @@ struct DefaultTileView: View {
                 AsyncImage(
                     url: getThumbnailURL(thumbnails: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnail.thumbnails)!),
                     content: { image in
-                    image.resizable()
-                            .frame(width: 444)
+                        image.resizable()
+                            .frame(width: 444, height: 250)
                             .aspectRatio(CGSize(width: 16, height: 9), contentMode: .fit)
                             .cornerRadius(10)
-                },
-                placeholder: {
-                    ProgressView()
-                })
+                    },
+                    placeholder: {
+                        ProgressView()
+                    })
+                .overlay(Text(" " + (tile.tileRenderer?.header.tileHeaderRenderer.thumbnailOverlays?[0]["thumbnailOverlayTimeStatusRenderer"]?.text.simpleText ?? "") + " ")
+                    .background(Color.black)
+                    .foregroundColor(Color.white)
+                    .font(.system(size: 24, weight: .regular))
+                    .cornerRadius(5)
+                    .padding(5)
+                         , alignment: .bottomTrailing)
             })
             .buttonStyle(PlainNavigationLinkButtonStyle())
             
@@ -35,6 +42,7 @@ struct DefaultTileView: View {
                 .lineLimit(2)
                 .font(.subheadline)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .fixedSize(horizontal: false, vertical: true)
             
             // Lines
             if tile.tileRenderer?.metadata.tileMetadataRenderer.lines != nil {
@@ -49,7 +57,7 @@ struct DefaultTileView: View {
             }
             Spacer()
         }
-        .frame(width: 444, height: 400)
+        .frame(width: 444, height: 415)
         //.border(.red)
     }
 }

@@ -25,6 +25,7 @@ struct ContentView: View {
                             //if selection != -1 { Text("Search") }
                         }
                     }
+                    .edgesIgnoringSafeArea(.horizontal)
                     .tag(-1)
                 BrowseView(topic: "default")
                     .tabItem {
@@ -33,6 +34,7 @@ struct ContentView: View {
                             //Text("Home")
                         }
                     }
+                    .edgesIgnoringSafeArea(.horizontal)
                     .tag(0)
                 BrowseView(topic: "FEtopics_news")
                     .tabItem {
@@ -42,6 +44,7 @@ struct ContentView: View {
                         }
                     }
                     .tag(1)
+                    .edgesIgnoringSafeArea(.horizontal)
 //                BrowseView(topic: "FEtopics_gaming")
 //                    .tabItem {
 //                        HStack {
@@ -49,6 +52,7 @@ struct ContentView: View {
 //                            //Text("Gaming")
 //                        }
 //                    }
+//                    .edgesIgnoringSafeArea(.horizontal)
 //                    .tag(2)
                 BrowseView(topic: "FEtopics_sports")
                     .tabItem {
@@ -57,6 +61,7 @@ struct ContentView: View {
                             //Text("Sports")
                         }
                     }
+                    .edgesIgnoringSafeArea(.horizontal)
                     .tag(3)
 //                BrowseView(topic: "FEtopics_music")
 //                    .tabItem {
@@ -64,6 +69,7 @@ struct ContentView: View {
 //                            Text("Music")
 //                        }
 //                    }
+//                    .edgesIgnoringSafeArea(.horizontal)
 //                    .tag(4)
                 SubscriptionsView()
                     .tabItem {
@@ -72,6 +78,7 @@ struct ContentView: View {
                             //Text("Subscriptions")
                         }
                     }
+                    .edgesIgnoringSafeArea(.horizontal)
                     .tag(5)
                 LibraryView()
                     .tabItem {
@@ -80,9 +87,14 @@ struct ContentView: View {
                             //Text("Library")
                         }
                     }
+                    .edgesIgnoringSafeArea(.horizontal)
+                    .tag(6)
             }
             .background { HeaderView() }
+            .edgesIgnoringSafeArea(.all)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

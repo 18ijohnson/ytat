@@ -11,19 +11,23 @@ struct DefaultShelfView: View {
     @State var shelf: Shelf
     
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 5) {
             if shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.simpleText != nil {
                 Text(shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.simpleText ?? "")
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 25)
             } else if shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.runs != nil {
                 Text(handleRuns(runs: (shelf.shelfRenderer?.headerRenderer.shelfHeaderRenderer.title?.runs)!))
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.leading, 25)
             }
             ScrollView(.horizontal) {
-                HStack(spacing: 10){
+                HStack(spacing: 20){
+                    Spacer(minLength: 5)
                     ForEach((shelf.shelfRenderer?.content.horizontalListRenderer.items)!) {item in
                         getTileView(tile: item)
                     }
+                    Spacer(minLength: 5)
                 }
             }
         }

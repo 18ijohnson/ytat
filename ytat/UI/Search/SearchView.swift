@@ -17,8 +17,10 @@ struct SearchView: View {
             SearchBar(text: $searchText, results: $searchResults) {
                 if searchResults != nil {
                     DefaultSectionView(section: searchResults!.contents)
+                        .edgesIgnoringSafeArea(.horizontal)
                 }
             }
+            .edgesIgnoringSafeArea(.horizontal)
         }
     }
 }

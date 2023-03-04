@@ -42,8 +42,8 @@ struct PlainNavigationLinkButtonStyle: ButtonStyle {
           .overlay(isFocused ?
                    ZStack {
                       RoundedRectangle(cornerRadius: 7)
-                          .stroke(lineWidth: 10)
-                          .padding(5)
+                          .stroke(lineWidth: 7)
+                          .padding(3)
                   }
                : nil
           )
