@@ -27,13 +27,13 @@ struct DefaultTileView: View {
                     placeholder: {
                         ProgressView()
                     })
-                .overlay(Text(" " + (tile.tileRenderer?.header.tileHeaderRenderer.thumbnailOverlays?[0]["thumbnailOverlayTimeStatusRenderer"]?.text.simpleText ?? "") + " ")
+                .overlay(getThumbnailOverlay(thumbnailOverlay: (tile.tileRenderer?.header.tileHeaderRenderer.thumbnailOverlays![0]["thumbnailOverlayTimeStatusRenderer"]!.text)!)
                     .background(Color.black)
                     .foregroundColor(Color.white)
                     .font(.system(size: 24, weight: .regular))
                     .cornerRadius(5)
                     .padding(5)
-                         , alignment: .bottomTrailing)
+                 , alignment: .bottomTrailing)
             })
             .buttonStyle(PlainNavigationLinkButtonStyle())
             
@@ -67,6 +67,20 @@ func getThumbnailURL(thumbnails: [TileThumbnailItem]) -> URL {
         if thumbnail.width == 444 { return URLFormatter(urlString: thumbnail.url) }
     }
     return URLFormatter(urlString: thumbnails[0].url)
+}
+
+func getThumbnailOverlay(thumbnailOverlay: CText) -> Text {
+    if thumbnailOverlay.simpleText != nil {
+        return Text(" " + (thumbnailOverlay.simpleText ?? "") + " ")
+    } else if thumbnailOverlay.runs != nil {
+        var text = ""
+        for run in thumbnailOverlay.runs! {
+            text += run.text!
+        }
+        return Text(" " + text + " ")
+    }
+    
+    return Text("")
 }
 
 struct TileView_Previews: PreviewProvider {

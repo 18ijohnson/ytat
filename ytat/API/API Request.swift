@@ -67,11 +67,13 @@ class APIRequest {
 struct RequestBody: Codable {
     var context: RequestContext
     var racyCheckOk, contentCheckOk: Bool
-    var browseID: String
+    var browseID: String?
+    var continuation: String?
 
     enum CodingKeys: String, CodingKey {
         case context, racyCheckOk, contentCheckOk
         case browseID = "browseId"
+        case continuation = "continuation"
     }
 }
 
