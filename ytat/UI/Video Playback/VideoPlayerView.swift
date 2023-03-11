@@ -83,7 +83,7 @@ struct VideoPlayerView: UIViewControllerRepresentable {
     }
     
     func createSpeedMenu() -> UIMenu {
-        let intervals = Array<Float>(stride(from: 0.5, through: 2, by: 0.5)) //todo figure out why this breaks above 2
+        let intervals = Array<Float>(stride(from: 0.5, through: 2, by: 0.5)).reversed() //todo figure out why this breaks above 2
         var speeds = [UIAction]()
         
         for interval in intervals {
@@ -91,6 +91,7 @@ struct VideoPlayerView: UIViewControllerRepresentable {
         }
         
         // create and return a menu with the speeds array as its actions
+        speeds[2].state = .on //todo make tthis work with user settings
         let submenu = UIMenu(title: "PlaybackSpeed", options: [.displayInline, .singleSelection], children: speeds)
         let menu = UIMenu(title: "Playback Speed", image: UIImage(systemName: "speedometer"), children: [submenu])
         return menu
