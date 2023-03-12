@@ -11,13 +11,15 @@ import AVKit
 //todo: fix playback for non-standard videos (ie movies, shorts, livestreams)
 struct PlaybackView: View {
     @State private var videoInfo: VideoInfoResponse
+    @State private var videoNext: VideoNextResponse
     
     init(videoID: String) {
         _videoInfo = State(initialValue: callVideoIDAPI(videoID: videoID))
+        _videoNext = State(initialValue: callVideoNextAPI(videoID: videoID)!)
     }
     
     var body: some View {
-        VideoPlayerView(videoInfo: $videoInfo)
+        VideoPlayerView(videoInfo: $videoInfo, videoNext: $videoNext)
             .ignoresSafeArea()
     }
 }
